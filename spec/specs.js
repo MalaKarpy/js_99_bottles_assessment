@@ -1,11 +1,23 @@
-describe('pigLatin', function(){
+describe("numberOfBottlesSong", function() {
+  it("return lyrics with the 3 number of bottles", function() {
+    var output = "3 bottles of beer on the wall, 3 bottles of beer. Take one down and pass it around, 2 bottles of beer on the wall.";
+    expect(numberOfBottlesSong(3)).to.equal(output);
+  });
 
-    it("it adds 'ay' to the end of a word if it starts with a vowel", function(){
-        expect(pigLatin('apple')).to.equal('appleay');
-    });
+  it("return lyrics with the 2 number of bottles", function() {
+    var output = "2 bottles of beer on the wall, 2 bottles of beer. Take one down and pass it around, 1 bottles of beer on the wall.";
+    expect(numberOfBottlesSong(2)).to.equal(output);
+  });
+
+  it("return lyrics with the 1 number of bottle", function() {
+    var output = "1 bottles of beer on the wall, 1 bottles of beer. Take one down and pass it around, 0 bottles of beer on the wall.";
+    expect(numberOfBottlesSong(1)).to.equal(output);
+  });
+
+  it("return lyrics with the 0 number of bottle", function() {
+    var output = "No more bottles of beer on the wall, No more bottles of beer. Go to the store and buy some more,0 bottles of beer on the wall.";
+    expect(numberOfBottlesSong(0)).to.equal(output);
+  });
 
 });
 
-// it("it splits the word at the adds 'ay' to the end of a word if it starts with a consonant,", function(){
-//     expect(pigLatin('a')).to.equal('aay');
-// });

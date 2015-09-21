@@ -1,37 +1,35 @@
-var pigLatin = function(string) {
-  //var vowels = ["a","e","i","o","u"];
-  var vowels = "aeiou";
-  var vowels_exp = /[a|e|i|o|u]/g;
-  var firstLetter = string.charAt(0);
-  var check_qu = string.slice(0,2);
+var numberOfBottlesSong = function(numberBottles) {
+  
+    debugger;
+    var i = numberBottles;
+    var totalNumber_bottles = numberBottles;
+    var partOfSentence1 = " bottles of beer on the wall, ";
+    var partOfSEntence2 = " bottles of beer. Take one down and pass it around, ";
+    var partOfSEntence3 = " bottles of beer on the wall.";
+    var song = 0; 
+    var oneLessBottle = i - 1;
+    var outputSong = 0; 
+     
+     outputSong = i + partOfSentence1 + i + partOfSEntence2  +  oneLessBottle + partOfSEntence3;  
+     
+     if(i === 0){
+      var partOfSentence4 = " No more";
+      var partOfSentence5 = " bottles of beer.";
+      var partOfSentence6 = " Go to the store and buy some more,"
+      //var zeroLyrics = 0;
+      outputSong = partOfSentence4 + partOfSentence1 + partOfSentence4 + partOfSentence5 + partOfSentence6 + totalNumber_bottles + partOfSEntence3;
+     }
 
-  if ((vowels.indexOf(firstLetter)) === 0) {
-    string = string + "ay";
-  }
-
-  else if (check_qu === "qu") {
-    string = string.slice(2)+"quay";
-  }
-
-  else {
-    var match_result = string.match(/[a|e|i|o|u]/g);
-    var result = string.indexOf(match_result[0]);
-    var string = string.slice(result) + string.slice(0, result) +"ay";
-  }
-
-  return string;
+     return outputSong;
 };
 
 $(function() {
-    $("form#pig-latin").submit(function(event) {
-      var piglatinWord = $("input#word").val()
-
-
-    var translatedWord = pigLatin(piglatinWord);
-
-    $(".answer").text(translatedWord);
-
-    event.preventDefault();
-  });
-
+     $("form#bottles-song").submit(function(event) {
+       var numberBottles = $("input#totalBottles").val()
+       
+       for(var i=numberBottles; i>=0; i--){
+          $(".answer").append(numberOfBottlesSong(i) + "<br/>");
+       }
+       event.preventDefault();
+     });
 });
