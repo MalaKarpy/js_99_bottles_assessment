@@ -14,10 +14,5 @@ describe("numberOfBottlesSong", function() {
     expect(numberOfBottlesSong(1)).to.equal(output);
   });
 
-  it("return lyrics with the 0 number of bottle", function() {
-    var output = "No more bottles of beer on the wall, No more bottles of beer. Go to the store and buy some more,0 bottles of beer on the wall.";
-    expect(numberOfBottlesSong(0)).to.equal(output);
-  });
-
 });
 
